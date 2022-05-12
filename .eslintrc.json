@@ -12,7 +12,6 @@
 		"ecmaFeatures": {
 			"jsx": true
 		},
-		"ecmaVersion": 12,
 		"sourceType": "module"
 	},
 	"plugins": [
@@ -40,8 +39,6 @@
 				"ignoreReadBeforeAssign": false
 			}
 		],
-		"simple-import-sort/imports": "error",
-		"simple-import-sort/exports": "error",
 		"no-useless-catch": "off",
 		"padding-line-between-statements": [
 			"error",
