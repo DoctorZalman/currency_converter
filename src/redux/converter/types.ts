@@ -1,0 +1,6 @@
+enum CurrencyTypes {
+  GET_CURRENCY = 'GET_CURRENCY',
+  GET_CURRENCY_SUCCESS = 'GET_CURRENCY_SUCCESS',
+  GET_CURRENCY_ERROR = 'GET_CURRENCY_ERROR',
+}
+export default CurrencyTypes;

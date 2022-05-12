@@ -1,15 +1,15 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import {API_KEY} from "../consts";
 
 const instance: AxiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_MAIN_API_ENDPOINT,
+  baseURL: 'https://api.apilayer.com/exchangerates_data/',
   responseType: 'json',
   headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-  },
+    "apikey": API_KEY
+  }
 });
 
-const get = <R>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R> =>
+const get = <R>(url: string, config?: AxiosRequestConfig): Promise<R> =>
   instance.get(url, config).then((response) => response as unknown as R);
 
 export { get };

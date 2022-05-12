@@ -1,9 +1,9 @@
-import selectors from '../index';
+import {currencySelectors} from "../index";
 
 describe('App Selector', () => {
   test('call appSelector ', () => {
     const state = { app: {} };
-    const app = selectors.appSelector(state);
+    const app = currencySelectors(state);
     expect(app).toEqual(state.app);
   });
 });
