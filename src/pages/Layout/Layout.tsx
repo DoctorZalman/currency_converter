@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-// import Header from "../../components/Header";
+import Header from "../../components/Header";
 import { useStyles } from './styles';
 
 const Layout = () => {
@@ -10,7 +10,7 @@ const Layout = () => {
 
   return (
     <Box className={classes.wrapper}>
-      {/*<Header />*/}
+      <Header />
       <Outlet />
     </Box>
   );
