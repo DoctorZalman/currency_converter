@@ -1,1 +1,3 @@
-export const currencySelectors = (state: any) => state;
+const currencySelectors = ({currencyRate}: any) => currencyRate.currency.result || '';
+
+export default currencySelectors;

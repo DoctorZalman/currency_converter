@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import Header from "../../components/Header";
 import { useStyles } from './styles';
 
-const Layout = () => {
+const Index = () => {
   const classes = useStyles();
 
   return (
@@ -16,4 +16,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default Index;

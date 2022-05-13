@@ -2,7 +2,7 @@ import { Container, CssBaseline, Switch, ThemeProvider } from '@mui/material';
 import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import Layout from './pages/Layout/Layout';
+import Index from './pages/Layout';
 import store from './redux';
 import { useStyles } from './styles/styles';
 import { darkTheme, lightTheme } from './theme';
@@ -15,12 +15,13 @@ const App = () => {
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Provider store={store}>
-        <Container>
+        <Container className={classes.general_styles}>
           <CssBaseline />
           <Switch className={classes.switch} checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Index />}>
               <Route path="/currency_converter" element={<CurrencyConverter />} />
+              <Route path="/exchange_rate" element={<CurrencyConverter />} />
             </Route>
           </Routes>
         </Container>

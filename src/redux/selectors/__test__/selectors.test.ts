@@ -1,4 +1,4 @@
-import {currencySelectors} from "../index";
+import currencySelectors from "../index";
 
 describe('App Selector', () => {
   test('call appSelector ', () => {
