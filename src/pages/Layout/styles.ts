@@ -6,7 +6,7 @@ export const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    maxWidth: 1080,
+    maxWidth: 980,
     width: '100%',
     marginTop: 10,
     marginBottom: 50,

@@ -11,6 +11,9 @@ const Header = () => {
       <Button variant="outlined">
         <Link to="/currency_converter">Converter</Link>
       </Button>
+      <Button variant="outlined">
+        <Link to="/exchange_rate">Exchange Rate</Link>
+      </Button>
     </Box>
   );
 };
