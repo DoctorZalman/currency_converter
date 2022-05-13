@@ -1,3 +1,3 @@
-const currencySelectors = ({currencyRate}: any) => currencyRate.currency.result || '';
+export const currencySelectors = ({currencyRate}: any) => currencyRate.currency.result || '';
 
-export default currencySelectors;
+export const latestRateSelectors = ({currencyRate}: any) => currencyRate.latest.rates || '';

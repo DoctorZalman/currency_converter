@@ -2,23 +2,19 @@ import React, {useState} from 'react';
 import {Box, Button, TextField} from '@mui/material';
 import {useStyles} from './styles';
 import {useDispatch, useSelector} from "react-redux";
-import {getCurrency, IConvertPayload} from "../../redux/converter/actionCreators";
-import currencySelectors from "../../redux/selectors";
+import {getCurrency} from "../../redux/converter/actionCreators";
+import {currencySelectors} from "../../redux/selectors";
+import {IConvertPayload} from "../../interfaces";
 
 const CurrencyConverter = () => {
   const [mainInputData, setMainInputData] = useState('');
   const classes = useStyles();
-  const selectorrS = useSelector(currencySelectors)
-
-  console.log(selectorrS);
+  const getConvertDataResult = useSelector(currencySelectors)
   const dispatch = useDispatch();
 
   const convertData = (data: string) => {
-
     const splitedData = data.split(' ');
-
     const [amount, from, , to] = splitedData;
-
     const payload: IConvertPayload = {amount, from, to};
 
     dispatch(getCurrency(payload));
@@ -29,16 +25,20 @@ const CurrencyConverter = () => {
   }
 
   const handleOnClickField = (e: any) => {
-    console.log(e);
-    if (e.key === 'Enter' || e.target) {
+    if (e.key === 'Enter') {
       convertData(mainInputData)
     }
   }
 
+  const handleClickButton = () => {
+    convertData(mainInputData)
+  }
+
   return (
-    <Box className={classes.main} >
+    <Box className={classes.main}>
       <Box>
         <TextField
+          color="primary"
           value={mainInputData}
           onKeyPress={handleOnClickField}
           onChange={handleChangeValue}
@@ -49,15 +49,15 @@ const CurrencyConverter = () => {
           InputProps={
             {
               endAdornment: <Button
-                onClick={handleOnClickField}
+                onClick={handleClickButton}
               >Enter</Button>
             }
           }
         />
 
       </Box>
-      <TextField className={classes.secondaryInput} value={selectorrS} id="outlined-basic" variant="outlined"/>
-
+      <TextField className={classes.secondaryInput} value={Number(getConvertDataResult).toFixed(2)} id="outlined-basic"
+                 variant="outlined"/>
     </Box>
   );
 };

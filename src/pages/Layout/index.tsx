@@ -9,7 +9,9 @@ const Index = () => {
   const classes = useStyles();
 
   return (
-    <Box className={classes.wrapper}>
+    <Box className={classes.wrapper} sx={{
+      backgroundColor: 'primary.dark',
+    }}>
       <Header />
       <Outlet />
     </Box>
