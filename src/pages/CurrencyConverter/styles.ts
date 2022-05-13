@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles';
 export const useStyles = makeStyles({
   main: {
     display: 'flex',
-    width: '50vw',
+    width: '80vw',
     justifyContent: "space-around"
   },
   secondaryInput: {

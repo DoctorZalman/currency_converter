@@ -12,7 +12,7 @@ export const darkTheme = createTheme({
       default: '#24454a',
     },
     text: {
-      primary: '#24454a',
+      primary: 'rgba(255,255,255,0.7)',
       secondary: 'rgba(255,255,255,0.7)',
       disabled: 'rgba(255,255,255,0.5)',
     },

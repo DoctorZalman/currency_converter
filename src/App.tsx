@@ -7,6 +7,7 @@ import store from './redux';
 import { useStyles } from './styles/styles';
 import { darkTheme, lightTheme } from './theme';
 import CurrencyConverter from "./pages/CurrencyConverter";
+import ExchangeRate from "./pages/ExchangeRate";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -21,7 +22,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />}>
               <Route path="/currency_converter" element={<CurrencyConverter />} />
-              <Route path="/exchange_rate" element={<CurrencyConverter />} />
+              <Route path="/exchange_rate" element={<ExchangeRate />} />
             </Route>
           </Routes>
         </Container>
