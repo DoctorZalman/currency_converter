@@ -20,17 +20,17 @@ const CurrencyConverter: FC = (): ReactElement => {
     dispatch(getCurrency(payload));
   }
 
-  const handleChangeValue = (e: any) => {
+  const handleChangeValue = (e: any): void => {
     setMainInputData(e.target.value)
   }
 
-  const handleOnClickField = (e: any) => {
+  const handleOnClickField = (e: any): void => {
     if (e.key === 'Enter') {
       convertData(mainInputData)
     }
   }
 
-  const handleClickButton = () => {
+  const handleClickButton = (): void => {
     convertData(mainInputData)
   }
 
