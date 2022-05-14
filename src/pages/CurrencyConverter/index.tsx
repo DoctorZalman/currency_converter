@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC, ReactElement, useState} from 'react';
 import {Box, Button, TextField} from '@mui/material';
 import {useStyles} from './styles';
 import {useDispatch, useSelector} from "react-redux";
@@ -6,13 +6,13 @@ import {getCurrency} from "../../redux/converter/actionCreators";
 import {currencySelectors} from "../../redux/selectors";
 import {IConvertPayload} from "../../interfaces";
 
-const CurrencyConverter = () => {
+const CurrencyConverter: FC = (): ReactElement => {
   const [mainInputData, setMainInputData] = useState('');
   const classes = useStyles();
   const getConvertDataResult = useSelector(currencySelectors)
   const dispatch = useDispatch();
 
-  const convertData = (data: string) => {
+  const convertData = (data: string): void => {
     const splitedData = data.split(' ');
     const [amount, from, , to] = splitedData;
     const payload: IConvertPayload = {amount, from, to};
@@ -35,29 +35,39 @@ const CurrencyConverter = () => {
   }
 
   return (
-    <Box className={classes.main}>
-      <Box>
-        <TextField
-          color="primary"
-          value={mainInputData}
-          onKeyPress={handleOnClickField}
-          onChange={handleChangeValue}
-          id="outlined-basic"
-          helperText="Ex: 15 usd in uah"
-          label="Please enter currency"
-          variant="outlined"
-          InputProps={
-            {
-              endAdornment: <Button
-                onClick={handleClickButton}
-              >Enter</Button>
-            }
+    <Box
+      className={classes.main}
+      sx={
+        {
+          justifyContent: {xs: "space-between", md: 'space-around'},
+          flexDirection: {md: 'row', xs: 'column'},
+          width: {md: '75%', xs: '92%'}
+        }
+      }
+    >
+      <TextField
+        className={classes.mainInput}
+        color="primary"
+        value={mainInputData}
+        onKeyPress={handleOnClickField}
+        onChange={handleChangeValue}
+        id="outlined-basic"
+        label="Ex: 15 usd in uah"
+        variant="outlined"
+        InputProps={
+          {
+            endAdornment: <Button
+              onClick={handleClickButton}
+            >Enter</Button>
           }
-        />
-
-      </Box>
-      <TextField className={classes.secondaryInput} value={Number(getConvertDataResult).toFixed(2)} id="outlined-basic"
-                 variant="outlined"/>
+        }
+      />
+      <TextField
+        color="primary"
+        className={classes.secondaryInput}
+        value={Number(getConvertDataResult).toFixed(2)}
+        id="outlined-basic"
+        variant="outlined"/>
     </Box>
   );
 };

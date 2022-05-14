@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {FC, ReactElement, useEffect} from 'react';
 import {Box, Typography} from '@mui/material';
 import {useStyles} from "./styles";
 import {useDispatch, useSelector} from "react-redux";
@@ -6,7 +6,7 @@ import {getLatest} from "../../redux/converter/actionCreators";
 import {latestRateSelectors} from "../../redux/selectors";
 import {rateCurrency} from "../../utils";
 
-const ExchangeRate = () => {
+const ExchangeRate: FC = (): ReactElement => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const getLatestRateResult = useSelector(latestRateSelectors)
@@ -23,7 +23,7 @@ const ExchangeRate = () => {
           Object.keys(getLatestRateResult).map((key) => {
             if (key !== 'UAH') {
               return (
-                <Typography key={key}>
+                <Typography color='primary' mb={1} key={key}>
                   {`1 ${key} = ${rateCurrency(getLatestRateResult[key])} UAH`}
                 </Typography>
               )
