@@ -1,1 +1,1 @@
-export const rateCurrency = (rate: number): number => +(rate * 1000).toFixed(3)
+export const rateCurrency = (rate: number): number => +(rate * 1000).toFixed(2)
