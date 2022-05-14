@@ -1,5 +1,5 @@
 import React, {FC, ReactElement, useEffect} from 'react';
-import {Box, Typography} from '@mui/material';
+import {Box, TextField} from '@mui/material';
 import {useStyles} from "./styles";
 import {useDispatch, useSelector} from "react-redux";
 import {getLatest} from "../../redux/converter/actionCreators";
@@ -23,9 +23,7 @@ const ExchangeRate: FC = (): ReactElement => {
           Object.keys(getLatestRateResult).map((key) => {
             if (key !== 'UAH') {
               return (
-                <Typography color='primary' mb={1} key={key}>
-                  {`1 ${key} = ${rateCurrency(getLatestRateResult[key])} UAH`}
-                </Typography>
+                <TextField className={classes.exchangeRate_field} id="outlined-read-only-input" color='primary' key={key} value={`1 ${key} = ${rateCurrency(getLatestRateResult[key])} UAH`} />
               )
             }
           })
